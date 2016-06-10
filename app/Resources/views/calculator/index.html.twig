@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Operations</h1>
+    <ul>
+        <li><a href="{{ path('app_calculator_sum') }}" />Sum</li>
+        <li><a href="{{ path('app_calculator_sub') }}" />Substract</li>
+        <li><a href="{{ path('app_calculator_mult') }}" />Multiply</li>
+        <li><a href="{{ path('app_calculator_div') }}" />Divide</li>
+    </ul>
+
+{% endblock %}
+
+

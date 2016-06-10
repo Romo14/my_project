@@ -2,12 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block header %}
+            {{ include(':calculator:header.html.twig') }}
+        {% endblock %}
         {% block body %}{% endblock %}
+        {% block footer %}
+            {{ include(':calculator:footer.html.twig') }}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
