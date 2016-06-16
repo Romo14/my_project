@@ -10,4 +10,5 @@ services:
 
   calculator:
     class: AppBundle\Service\CalculatorService
+    shared: false
 
