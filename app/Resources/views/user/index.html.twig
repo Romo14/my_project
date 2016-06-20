@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+ {% block header %}
+     {{ include(':user:header.html.twig') }}
+ {% endblock %}
+
+{% block body %}
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Email</td>
+            <td>Username</td>
+            <td>Created at</td>
+            <td>Updated at</td>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.createdAt|date("d/m/Y H:i:s") }}</td>
+                <td>{{ user.updatedAt|date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_user_update', {'id': user.id}) }}">update</a></td>
+                <td><a href="{{ path('app_user_delete', {'id': user.id}) }}" onclick="return confirm('Are you sure?')">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <ul>
+        <li><a href="{{ path('app_user_insert') }}"/>New user</li>
+    </ul>
+{% endblock %}
+
+{% block footer %}
+    {{ include(':user:footer.html.twig') }}
+{% endblock %}
