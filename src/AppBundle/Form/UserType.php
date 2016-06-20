@@ -12,7 +12,7 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email', EmailType::class, ['error_bubbling' => true])
+        $builder->add('email', EmailType::class, ['error_bubbling' => true, 'attr' => ['class' => 'anyClass']])
             ->add('username', TextType::class, ['error_bubbling' => true]);
 
     }

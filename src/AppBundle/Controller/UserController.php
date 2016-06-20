@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -118,12 +119,13 @@ class UserController extends Controller
 
     /**
      * @Route(path="/delete/{id}", name="app_user_delete")
+     *
+     * @ParamConverter("user", class="AppBundle:User")
      */
-    public function doDelete($id)
+    public function doDelete($user)
     {
         $m = $this->getDoctrine()->getManager();
         $repository = $m->getRepository('AppBundle:User');
-        $user = $repository->find($id);
         $m->remove($user);
         $m->flush();
 
