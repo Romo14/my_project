@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+ {% block header %}
+     {{ include(':user:header.html.twig') }}
+ {% endblock %}
+
+{% block body %}
+
+<form method="post" action="{{ path('app_security_check') }}">
+    <input type="text" id="username" value="{{ last_username }}">
+    <input type="password" id="password">
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <button type="submit">Login</button>
+
+    </form>
+
+</form>
+
+{% endblock %}
+
+{% block footer %}
+    {{ include(':user:footer.html.twig') }}
+{% endblock %}
+

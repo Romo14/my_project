@@ -12,3 +12,9 @@ services:
     class: AppBundle\Service\CalculatorService
     shared: false
 
+  app.doctrine.userListener:
+    class: AppBundle\Doctrine\UserListener
+    arguments: ["@security.encoder_factory"]
+    tags:
+      - {name: doctrine.event_listener, event: prePersist}
+

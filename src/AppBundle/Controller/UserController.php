@@ -6,6 +6,7 @@ use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -71,6 +72,7 @@ class UserController extends Controller
 
     /**
      * @Route(path ="/update/{id}", name="app_user_update")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function updateFunction($id)
     {
